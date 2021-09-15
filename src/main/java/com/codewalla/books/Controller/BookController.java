@@ -6,6 +6,7 @@ import com.codewalla.books.dao.UserRepository;
 import com.codewalla.books.entity.Book;
 import com.codewalla.books.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +39,7 @@ public class BookController {
     }
 
     @GetMapping
-    public ResponseEntity getUser(@RequestParam(required = false) String writter){
+    public ResponseEntity getBook(@RequestParam(required = false) String writter){
         if(writter != null) {
             List<Book> books = bookRepository.getBookByWritter(writter);
             if (books.isEmpty()) {

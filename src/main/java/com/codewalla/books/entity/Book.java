@@ -1,6 +1,8 @@
 package com.codewalla.books.entity;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     private int id;
     private String name;
     private String writter;
